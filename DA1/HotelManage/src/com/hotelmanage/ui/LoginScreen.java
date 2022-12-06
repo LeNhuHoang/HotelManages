@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,10 +19,9 @@ public class LoginScreen extends javax.swing.JDialog {
     /**
      * Creates new form LoginScreen
      */
-   
-
     public LoginScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setUndecorated(true);
         initComponents();
         init();
     }
@@ -44,6 +44,7 @@ public class LoginScreen extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         passwordTxt1 = new com.hotelmanage.utils.PasswordTxt();
+        btnExit = new com.hotelmanage.utils.RoomButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -51,8 +52,7 @@ public class LoginScreen extends javax.swing.JDialog {
         pnlFrame.setBackground(new java.awt.Color(255, 255, 255));
 
         lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hotelmanage/icon/account.png"))); // NOI18N
-        lblIcon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hotelmanage/icon/userBig.png"))); // NOI18N
 
         lblView.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblView.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,6 +91,17 @@ public class LoginScreen extends javax.swing.JDialog {
         passwordTxt1.setLabelText("Mật Khẩu");
         passwordTxt1.setShowAndHide(true);
 
+        btnExit.setBackground(new java.awt.Color(255, 255, 255));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hotelmanage/icon/Cancel.png"))); // NOI18N
+        btnExit.setColorClick(new java.awt.Color(204, 0, 0));
+        btnExit.setColorOver(new java.awt.Color(255, 0, 0));
+        btnExit.setRadius(5);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlFrameLayout = new javax.swing.GroupLayout(pnlFrame);
         pnlFrame.setLayout(pnlFrameLayout);
         pnlFrameLayout.setHorizontalGroup(
@@ -98,7 +109,8 @@ public class LoginScreen extends javax.swing.JDialog {
             .addGroup(pnlFrameLayout.createSequentialGroup()
                 .addGap(144, 144, 144)
                 .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFrameLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblView, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,8 +129,11 @@ public class LoginScreen extends javax.swing.JDialog {
         pnlFrameLayout.setVerticalGroup(
             pnlFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(accoutTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
@@ -153,7 +168,7 @@ public class LoginScreen extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblViewMouseClicked
-        
+
     }//GEN-LAST:event_lblViewMouseClicked
 
     private void passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtActionPerformed
@@ -163,6 +178,15 @@ public class LoginScreen extends javax.swing.JDialog {
     private void loginButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginButton3ActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn thoát", 
+                "Xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result==JOptionPane.YES_OPTION){
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,7 +218,7 @@ public class LoginScreen extends javax.swing.JDialog {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               LoginScreen dialog = new LoginScreen(new javax.swing.JFrame(), true);
+                LoginScreen dialog = new LoginScreen(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -207,6 +231,7 @@ public class LoginScreen extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.hotelmanage.utils.AccoutTxt accoutTxt1;
+    private com.hotelmanage.utils.RoomButton btnExit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblIcon;
@@ -224,5 +249,4 @@ public class LoginScreen extends javax.swing.JDialog {
 
     }
 
-    
 }

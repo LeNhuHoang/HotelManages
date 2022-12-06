@@ -5,6 +5,7 @@
 package com.hotelmanage.ui;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +17,7 @@ public class HotelManagerMainDialog extends javax.swing.JFrame {
      * Creates new form HotelManagerMainDialog
      */
     public HotelManagerMainDialog() {
+        this.setUndecorated(true);
         initComponents();
         this.init();
     }
@@ -60,6 +62,7 @@ public class HotelManagerMainDialog extends javax.swing.JFrame {
         mainScreen1 = new com.hotelmanage.utils.MainScreen();
         tabs = new javax.swing.JTabbedPane();
         RoomJPanel = new javax.swing.JPanel();
+        btnExit = new com.hotelmanage.utils.RoomButton();
         StaffJPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -535,15 +538,31 @@ public class HotelManagerMainDialog extends javax.swing.JFrame {
 
         RoomJPanel.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnExit.setBackground(new java.awt.Color(255, 255, 255));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hotelmanage/icon/Cancel.png"))); // NOI18N
+        btnExit.setColorClick(new java.awt.Color(204, 0, 0));
+        btnExit.setColorOver(new java.awt.Color(255, 0, 0));
+        btnExit.setRadius(5);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout RoomJPanelLayout = new javax.swing.GroupLayout(RoomJPanel);
         RoomJPanel.setLayout(RoomJPanelLayout);
         RoomJPanelLayout.setHorizontalGroup(
             RoomJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 745, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RoomJPanelLayout.createSequentialGroup()
+                .addContainerGap(713, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
         );
         RoomJPanelLayout.setVerticalGroup(
             RoomJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 702, Short.MAX_VALUE)
+            .addGroup(RoomJPanelLayout.createSequentialGroup()
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 678, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab4", RoomJPanel);
@@ -1449,6 +1468,15 @@ public class HotelManagerMainDialog extends javax.swing.JFrame {
         tabs.setSelectedIndex(4);
     }//GEN-LAST:event_pnlCustomerMouseClicked
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(this, "Bạn có chắc muốn thoát",
+            "Xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result==JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1493,6 +1521,7 @@ public class HotelManagerMainDialog extends javax.swing.JFrame {
     private javax.swing.JButton btnAddCus;
     private javax.swing.JButton btnCheckIn;
     private javax.swing.JButton btnCheckOut;
+    private com.hotelmanage.utils.RoomButton btnExit;
     private javax.swing.JComboBox<String> cbxCustomer;
     private javax.swing.JComboBox<String> cbxStatus;
     private com.hotelmanage.utils.IconBoxNonSelected iconBoxNonSelected1;

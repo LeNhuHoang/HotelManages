@@ -23,6 +23,7 @@ public class LoadingScreen extends javax.swing.JDialog {
      */
     public LoadingScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setUndecorated(true);
         initComponents();
         init();
         this.loading();
