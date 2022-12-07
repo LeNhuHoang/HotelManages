@@ -10,7 +10,6 @@ CREATE TABLE tb_User
 	Birth Date NOT NULL,
     Username NVARCHAR(50) NOT NULL,
     Pass NVARCHAR(50) NOT NULL,
-	Role BIT NOT NULL,
 	Note NVARCHAR(300)
 )
 GO
@@ -31,7 +30,8 @@ CREATE TABLE tb_Room
     Statuss BIT NOT NULL,
 	RoomFloor INT NOT NULL,
 	RoomType INT NOT NULL,
-	RoomPrice FLOAT NOT NULL
+	RoomPrice FLOAT NOT NULL,
+	
 )
 GO
 --DỊCH VỤ

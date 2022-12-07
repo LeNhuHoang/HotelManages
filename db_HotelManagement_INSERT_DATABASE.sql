@@ -3,12 +3,6 @@ go
 
 insert into tb_User 
 values
-(N'MN001',N'Nguyễn Thị Bảo Vi','3/27/2003',N'mn001',N'1',1,N''),
-(N'MN002',N'Nguyễn Lê Minh Trung','2/15/2000',N'mn003',N'1',1,N''),
-(N'MN003',N'Hoàng Minh Đức','1/1/2003',N'mn003',N'1',1,N''),
-(N'MN004',N'Lê Như Hoàng','1/1/2003',N'mn004',N'1',1,N''),
-(N'ST001',N'Bing Chilling','1/1/2003',N'st001',N'1',0,N''),
-(N'ST003',N'World Cup','1/1/2003',N'st002',N'1',0,N'')
 (N'MN001',N'Nguyễn Thị Bảo Vi','3/27/2003',N'mn001',N'1',N''),
 (N'MN002',N'Nguyễn Lê Minh Trung','2/15/2000',N'mn003',N'1',N''),
 (N'MN003',N'Hoàng Minh Đức','1/1/2003',N'mn003',N'1',''),
